@@ -1,0 +1,140 @@
+spring:
+  profiles:
+    active: 
+    - dev
+---
+server:
+  port: 8001
+spring:
+  profiles: dev
+  application: weather-city-server
+  http:
+    encoding:            
+      charset: UTF-8
+      force: true
+      enabled: true
+  zipkin:           
+    base-url: http://localhost:9411/ 
+  sleuth:
+    sampler:
+      probability: 1
+  datasource:
+    username: root
+    password: mysql
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&useSSL=false&serverTimezone=CTT
+    driver‐class‐name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.weather.springcloud.api.model.entities
+  configuration:
+    map-underscore-to-camel-case: true
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+mapper:
+    mappers:
+        - com.weather.springcloud.city.utils.MyMapper
+    not-empty: false
+eureka:
+  client: 
+    service-url:
+      defaultZone: http://eureka7201.com:7201/eureka/,http://eureka7202.com:7202/eureka/,http://eureka7205.com:7205/eureka/
+  instance:
+    instance-id: weather-city-server-${server.port}
+    prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+info:
+  app.name: weather-city-server-${server.port}-provider
+  company.name: www.gogoo.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+---
+server:
+  port: 8001
+spring:
+  profiles: test
+  application: weather-city-server-test
+  http:
+    encoding:            
+      charset: UTF-8
+      force: true
+      enabled: true
+  zipkin:           
+    base-url: http://localhost:9411/ 
+  sleuth:
+    sampler:
+      probability: 1
+  datasource:
+    username: root
+    password: mysql
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&useSSL=false&serverTimezone=CTT
+    driver‐class‐name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.weather.springcloud.api.model.entities
+  configuration:
+    map-underscore-to-camel-case: true
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+mapper:
+    mappers:
+        - com.weather.springcloud.city.utils.MyMapper
+    not-empty: false
+eureka:
+  client: 
+    service-url:
+      defaultZone: http://eureka7201.com:7201/eureka/,http://eureka7202.com:7202/eureka/,http://eureka7205.com:7205/eureka/
+  instance:
+    instance-id: weather-city-server-${server.port}
+    prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+info:
+  app.name: weather-city-server-${server.port}-provider
+  company.name: www.gogoo.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
