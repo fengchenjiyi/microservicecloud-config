@@ -66,11 +66,6 @@ management:
     web:
       exposure:
         include: '*'
-info:
-  app.name: weather-city-server-${server.port}-provider
-  company.name: www.gogoo.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
 ---
 server:
   port: 8001
@@ -134,8 +129,3 @@ management:
     web:
       exposure:
         include: '*'
-info:
-  app.name: weather-city-server-${server.port}-provider
-  company.name: www.gogoo.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
