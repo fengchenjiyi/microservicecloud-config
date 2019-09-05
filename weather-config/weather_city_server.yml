@@ -7,7 +7,8 @@ server:
   port: 8001
 spring:
   profiles: dev
-  application: weather-city-server
+  application: 
+    name: weather-city-server
   http:
     encoding:            
       charset: UTF-8
