@@ -65,8 +65,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: hystrix.stream
-      base-path: /
+        include: '*'
 info:
   app.name: weather-city-server-${server.port}-provider
   company.name: www.gogoo.com
@@ -134,8 +133,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: hystrix.stream
-      base-path: /
+        include: '*'
 info:
   app.name: weather-city-server-${server.port}-provider
   company.name: www.gogoo.com
