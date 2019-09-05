@@ -15,7 +15,7 @@ eureka:
     register-with-eureka: false     # false表示不向注册中心注册自己。
     fetch-registry: false     # false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:7201/eureka/       # 设置与Eureka Server集群地址，更多集群通过 ,号隔开，集群时不用配置自己地址
+      defaultZone: http://${eureka.instance.hostname}:7201/eureka/,http://${eureka.instance.hostname}:7203/eureka/
 ---
 server:
   port: 7302
@@ -29,4 +29,4 @@ eureka:
     register-with-eureka: false     # false表示不向注册中心注册自己。
     fetch-registry: false     # false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:7301/eureka/       # 设置与Eureka Server集群地址，更多集群通过 ,号隔开，集群时不用配置自己地址
+      defaultZone: http://${eureka.instance.hostname}:7301/eureka/,http://${eureka.instance.hostname}:7303/eureka/
