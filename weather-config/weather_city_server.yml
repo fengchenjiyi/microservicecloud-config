@@ -6,7 +6,8 @@ spring:
 server:
   port: 8001
 spring:
-  profiles: dev
+  profiles: 
+    active: dev
   application: 
     name: weather-city-server
   http:
@@ -70,7 +71,8 @@ management:
 server:
   port: 8001
 spring:
-  profiles: test
+  profiles: 
+    active: test
   application: weather-city-server-test
   http:
     encoding:            

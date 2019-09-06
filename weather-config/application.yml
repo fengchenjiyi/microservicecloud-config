@@ -4,12 +4,14 @@ spring:
     - dev
 ---
 spring:
-  profiles: dev   #开发环境
+  profiles:
+    active: dev   #开发环境
   application:
     name: weather-config-dev
 ---
 spring:
-  profiles: test   #开发环境
+  profiles: 
+    active: test   #测试环境
   application:
     name: weather-config-test
 #   注意请保存为UTF-8格式
