@@ -71,7 +71,7 @@ server:
   port: 8001
 spring:
   profiles: test
-  application: weather-city-server-test
+  application: weather-city-server
   http:
     encoding:            
       charset: UTF-8

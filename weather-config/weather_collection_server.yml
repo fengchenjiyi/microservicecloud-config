@@ -44,7 +44,7 @@ server:
 spring:
   profiles: test
   application:
-    name: weather-collection-server-test
+    name: weather-collection-server
   http:
     encoding:
       charset: UTF-8
