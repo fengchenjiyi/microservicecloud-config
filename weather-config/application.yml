@@ -4,7 +4,7 @@ spring:
     - dev
 ---
 spring:
-  profiles:
+  profiles: 
     active: dev   #开发环境
   application:
     name: weather-config-dev
