@@ -6,8 +6,7 @@ spring:
 server:
   port: 8201
 spring:
-  profiles:
-    active: dev
+  profiles: dev
   application:
     name: weather-collection-server
   http:
@@ -43,8 +42,7 @@ feign:
 server:
   port: 8201
 spring:
-  profiles:
-    active: test
+  profiles: test
   application:
     name: weather-collection-server-test
   http:
