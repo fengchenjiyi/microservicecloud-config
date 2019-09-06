@@ -15,9 +15,8 @@ spring:
       force: true
       enabled: true
   redis:
-    host: 116.85.17.75
-    password: gltestredis
-    port: 10001
+    host: 127.0.0.1
+    port: 6379
   zipkin:
     base-url: http://localhost:9411/
   sleuth:
@@ -51,9 +50,8 @@ spring:
       force: true
       enabled: true
   redis:
-    host: 116.85.17.75
-    password: gltestredis
-    port: 10001
+    host: 127.0.0.1
+    port: 6379
   zipkin:
     base-url: http://localhost:9411/
   sleuth:
